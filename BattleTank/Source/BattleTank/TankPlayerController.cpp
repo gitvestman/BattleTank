@@ -36,14 +36,14 @@ void ATankPlayerController::AimTowardsCrosshair()
     FVector HitLocation; // out parameter
     if (GetSightRayHitLocation(OUT HitLocation))
     {
-        UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString());
+        GetControlledTank()->AimAt(HitLocation);
    }
 }
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation)
 {
     // Find the crosshair position
-    // De-project the screeb osition o fthe croshair
+    // De-project the screen position o fthe croshair
     // Line-trace along that line and see what we hit
     
     if (GetLookVectorHitLocation(OUT HitLocation))

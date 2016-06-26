@@ -7,6 +7,7 @@
 
 // Forward declaratons
 class UTankBarrel;
+class UTankTurret;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
@@ -19,12 +20,14 @@ public:
     
     void SetBarrelReference(UTankBarrel* BarrelToSet);
     
-    // TODO: Add SetTurretReference
+	void SetTurretReference(UTankTurret* TurretToSet);
 
     void AimAt(FVector AimLocation, float LaunchSpeed);
 	
 private:
     UTankBarrel* Barrel = nullptr;
+
+	UTankTurret* Turret = nullptr;
     
     void MoveBarrelTowards(FVector AimDirection);
     

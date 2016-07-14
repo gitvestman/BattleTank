@@ -9,7 +9,10 @@ UCLASS()
 class BATTLETANK_API AProjectile : public AActor
 {
 	GENERATED_BODY()
-	
+
+protected:
+	UProjectileMovementComponent* ProjectileMovement;
+
 public:	
 	// Sets default values for this actor's properties
 	AProjectile();
@@ -20,6 +23,5 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	
-	
+	void Launch(float Speed);
 };

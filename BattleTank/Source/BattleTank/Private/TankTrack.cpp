@@ -3,11 +3,8 @@
 #include "BattleTank.h"
 #include "TankTrack.h"
 
-void UTankTrack::SetThrottle(float Throttle) {
-	//auto Time = GetWorld()->GetTimeSeconds();
-	auto Name = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("%s: Track Throttle %f"), *Name, Throttle);
-	
+void UTankTrack::SetThrottle(float Throttle) 
+{	
 	// TODO clamp actual throttle value
 	auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce;
 	auto ForceLocation = GetComponentLocation();

@@ -37,11 +37,15 @@ public:
 	EFiringState GetFiringState() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
-	int GetRoundsLeft() const;
+	int32 GetRoundsLeft() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Setup")
 	EFiringState FiringState = EFiringState::Reloading;
+
+private:
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000; // 400 m/s
@@ -49,10 +53,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	TSubclassOf<AProjectile> ProjectileBlueprint;
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	int32 RoundsLeft = 3;
 
-private:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
@@ -69,5 +72,5 @@ private:
 
 	FVector AimDirection;
 	double LastFireTime = 0;
-	int RoundsLeft = 3;
+
 };

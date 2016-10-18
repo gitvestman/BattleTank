@@ -26,6 +26,14 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent* ImpactBlast = nullptr;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	URadialForceComponent* ExplosionForce = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	int32 DestroyDelay = 10;
+
+	void DestroyProjectileTimeout();
+
 public:	
 	// Sets default values for this actor's properties
 	AProjectile();

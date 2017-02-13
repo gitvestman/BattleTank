@@ -22,6 +22,8 @@ protected:
 private:
     void BeginPlay() override;
     
+	void SetPawn(APawn* InPawn);
+
     virtual void Tick( float DeltaSeconds ) override;
     
     // Move the barrel towards aim
@@ -42,4 +44,7 @@ private:
 
     UPROPERTY(EditDefaultsOnly)
     float LineTraceRange = 1000000;
+
+	UFUNCTION()
+	void OnTankDeath();
 };
